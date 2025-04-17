@@ -31,6 +31,13 @@ Two CSV files were used:
 - Python (pandas, scikit-learn)
 
 ## Results
-The project delivers a working churn prediction pipeline with interpretable results. The workflow can be extended for customer segmentation and targeted retention campaigns.
-
+Class Imbalance: 80% of customers did not churn, and only 20% did. This imbalance significantly affects recall for the churn class.
+Logistic Regression:
+   - Accuracy: 72%
+   - Precision (Churn): 21%, Recall (Churn): 11%
+   - Performs decently on non-churn predictions but struggles with actual churners.
+Random Forest:
+   - Accuracy: 79%
+   - Precision (Churn): 0%, Recall (Churn): 0%
+   - Heavily biased toward predicting non-churn due to class imbalance.
 
