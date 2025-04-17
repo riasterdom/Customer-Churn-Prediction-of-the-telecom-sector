@@ -1,0 +1,60 @@
+[2]
+12s
+
+# Join data
+churn_df = telco_demog.merge(telco_usage, on='customer_id')
+
+# Identify churn rate
+churn_rate = churn_df['churn'].value_counts() / len(churn_df)
+print(churn_rate)
+
+# Identify categorical variables
+print(churn_df.info())
+
+churn
+0    0.799538
+1    0.200462
+Name: count, dtype: float64
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 6500 entries, 0 to 6499
+Data columns (total 14 columns):
+ #   Column              Non-Null Count  Dtype 
+---  ------              --------------  ----- 
+ 0   customer_id         6500 non-null   int64 
+ 1   telecom_partner     6500 non-null   object
+ 2   gender              6500 non-null   object
+ 3   age                 6500 non-null   int64 
+ 4   state               6500 non-null   object
+ 5   city                6500 non-null   object
+ 6   pincode             6500 non-null   int64 
+ 7   registration_event  6500 non-null   object
+ 8   num_dependents      6500 non-null   int64 
+ 9   estimated_salary    6500 non-null   int64 
+ 10  calls_made          6500 non-null   int64 
+ 11  sms_sent            6500 non-null   int64 
+ 12  data_used           6500 non-null   int64 
+ 13  churn               6500 non-null   int64 
+dtypes: int64(9), object(5)
+memory usage: 711.1+ KB
+None
+[[911 116]
+ [243  30]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.89      0.84      1027
+           1       0.21      0.11      0.14       273
+
+    accuracy                           0.72      1300
+   macro avg       0.50      0.50      0.49      1300
+weighted avg       0.67      0.72      0.69      1300
+
+[[1026    1]
+ [ 273    0]]
+              precision    recall  f1-score   support
+
+           0       0.79      1.00      0.88      1027
+           1       0.00      0.00      0.00       273
+
+    accuracy                           0.79      1300
+   macro avg       0.39      0.50      0.44      1300
+weighted avg       0.62      0.79      0.70      1300
